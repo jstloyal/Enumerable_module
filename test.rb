@@ -5,6 +5,10 @@ require_relative 'enumerable'
  "----------"
 # (3..8).my_each_with_index { |x, i| "#{x}, #{i}" } 
 
-# a = [2,3,4,2,6,7]
-# p a.my_count 
+a = [2,3,4,2,6,7]
+p a.my_count 
+
+p a.my_select { |x| x <= 4 }
+
+p a.select { |x| x <= 4}
 

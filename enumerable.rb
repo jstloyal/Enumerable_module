@@ -35,6 +35,18 @@ module Enumerable
     end
    count
   end
+
+  def my_select
+    return enum_for unless block_given?
+    arr = is_a?(Range) ? to_a : self
+    count = []
+    i = 0
+    while i < arr.length
+      count << arr[i] if yield(arr[i])
+      i += 1
+    end
+    count
+  end
   
 end
 
