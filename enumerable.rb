@@ -47,6 +47,17 @@ module Enumerable
     end
     count
   end
+
+  def my_all?(*args)
+    # return true unless block_given?
+    arr = is_a?(Range) ? to_a : self
+    i = 0
+    while i < arr.size
+      return false if !yield(arr[i])
+      i += 1
+    end
+    true
+  end
   
 end
 
