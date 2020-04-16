@@ -3,7 +3,7 @@ module Enumerable
     return enum_for unless block_given?
     arr = is_a?(Range) ? to_a : self
     i = 0
-    while i < arr.length
+    while i < arr.size
       yield(arr[i])
       i += 1
     end
@@ -16,7 +16,7 @@ module Enumerable
     arr = is_a?(Range) ? to_a : self
    
     i = 0
-    while i < arr.length
+    while i < arr.size
       yield(arr[i], i)
       i += 1
     end
@@ -29,7 +29,7 @@ module Enumerable
     arr = is_a?(Range) ? to_a : self
     count = 0
     i = 0
-    while i < arr.length
+    while i < arr.size
       count += 1 if yield(arr[i])
       i += 1
     end
@@ -41,7 +41,7 @@ module Enumerable
     arr = is_a?(Range) ? to_a : self
     count = []
     i = 0
-    while i < arr.length
+    while i < arr.size
       count << arr[i] if yield(arr[i])
       i += 1
     end
