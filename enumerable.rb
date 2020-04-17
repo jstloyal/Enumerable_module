@@ -48,7 +48,7 @@ module Enumerable
     count
   end
 
-  def my_all?()
+  def my_all?(*args)
     arr = is_a?(Range) ? to_a : self
     i = 0
     while i < arr.size
@@ -77,7 +77,12 @@ module Enumerable
     false
   end
 
-  def my_none?
+  def my_none?(*args)
+
+    unless block_given?
+      self.my_each { |item| return false if item != false }
+      return true
+    end
     self.my_each do |item|
       if yield(item) == true
         return false 
