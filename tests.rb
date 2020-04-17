@@ -10,7 +10,7 @@ require_relative 'enumerable'
 # puts '------------------'
 # print [1, 2, 3].my_each_with_index { |elem, idx| puts "#{elem} : #{idx}" } # => 1 : 0, 2 : 1, 3 : 2
 # puts
-# # 3. my_select
+# 3. my_select
 # puts 'my_select'
 # puts '---------'
 # p [1, 2, 3, 8].my_select(&:even?) # => [2, 8]
@@ -18,33 +18,33 @@ require_relative 'enumerable'
 # p [6, 11, 13].my_select(&:odd?) # => [11, 13]
 # puts
 # 4. my_all? (example test cases)
-puts 'my_all?'
-puts '-------'
-p [3, 5, 7, 11].my_all?(&:odd?) # => true
-p [-8, -9, -6].my_all? { |n| n < 0 } # => true
-p [3, 5, 8, 11].my_all?(&:odd?) # => false
-p [-8, -9, -6, 0].my_all? { |n| n < 0 } # => false
-# test cases required by tse reviewer
-p [1, 2, 3, 4, 5].my_all? # => true
-p [1, 2, 3].my_all?(Integer) # => true
-p %w[dog door rod blade].my_all?(/d/) # => true
-p [1, 1, 1].my_all?(1) # => true
-puts
-# # 5. my_any? (example test cases)
-# puts 'my_any?'
+# puts 'my_all?'
 # puts '-------'
-# p [7, 10, 3, 5].my_any?(&:even?) # => true
-# p [7, 10, 4, 5].my_any?(&:even?) # => true
-# p %w[q r s i].my_any? { |char| 'aeiou'.include?(char) } # => true
-# p [7, 11, 3, 5].my_any?(&:even?) # => false
-# p %w[q r s t].my_any? { |char| 'aeiou'.include?(char) } # => false
+# p [3, 5, 7, 11].my_all?(&:odd?) # => true
+# p [-8, -9, -6].my_all? { |n| n < 0 } # => true
+# p [3, 5, 8, 11].my_all?(&:odd?) # => false
+# p [-8, -9, -6, 0].my_all? { |n| n < 0 } # => false
 # # test cases required by tse reviewer
-# p [3, 5, 4, 11].my_any? # => true
-# p [1, nil, false].my_any?(1) # => true
-# p [1, nil, false].my_any?(Integer) # => true
-# p %w[dog door rod blade].my_any?(/z/) # => false
-# p [1, 2, 3].my_any?(1) # => true
+# p [1, 2, 3, 4, 5].my_all? # => true
+# p [1, 2, 3].my_all?(Integer) # => true
+# p %w[dog door rod blade].my_all?(/d/) # => true
+# p [1, 1, 1].my_all?(1) # => true
 # puts
+#5. my_any? (example test cases)
+puts 'my_any?'
+puts '-------'
+p [7, 10, 3, 5].my_any?(&:even?) # => true
+p [7, 10, 4, 5].my_any?(&:even?) # => true
+p %w[q r s i].my_any? { |char| 'aeiou'.include?(char) } # => true
+p [7, 11, 3, 5].my_any?(&:even?) # => false
+p %w[q r s t].my_any? { |char| 'aeiou'.include?(char) } # => false
+# test cases required by tse reviewer
+p [3, 5, 4, 11].my_any? # => true
+p [1, nil, false].my_any?(1) # => true
+p [1, nil, false].my_any?(Integer) # => true
+p %w[dog door rod blade].my_any?(/z/) # => false
+p [1, 2, 3].my_any?(1) # => true
+puts
 # # 6. my_none? (example test cases)
 # puts 'my_none?'
 # puts '--------'
