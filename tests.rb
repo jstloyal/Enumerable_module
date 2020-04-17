@@ -31,33 +31,33 @@ require_relative 'enumerable'
 # p [1, 1, 1].my_all?(1) # => true
 # puts
 #5. my_any? (example test cases)
-puts 'my_any?'
-puts '-------'
-p [7, 10, 3, 5].my_any?(&:even?) # => true
-p [7, 10, 4, 5].my_any?(&:even?) # => true
-p %w[q r s i].my_any? { |char| 'aeiou'.include?(char) } # => true
-p [7, 11, 3, 5].my_any?(&:even?) # => false
-p %w[q r s t].my_any? { |char| 'aeiou'.include?(char) } # => false
-# test cases required by tse reviewer
-p [3, 5, 4, 11].my_any? # => true
-p [1, nil, false].my_any?(1) # => true
-p [1, nil, false].my_any?(Integer) # => true
-p %w[dog door rod blade].my_any?(/z/) # => false
-p [1, 2, 3].my_any?(1) # => true
-puts
-# # 6. my_none? (example test cases)
-# puts 'my_none?'
-# puts '--------'
-# p [3, 5, 7, 11].my_none?(&:even?) # => true
-# p %w[sushi pizza burrito].my_none? { |word| word[0] == 'a' } # => true
-# p [3, 5, 4, 7, 11].my_none?(&:even?) # => false
-# p %w[asparagus sushi pizza apple burrito].my_none? { |word| word[0] == 'a' } # => false
+# puts 'my_any?'
+# puts '-------'
+# p [7, 10, 3, 5].my_any?(&:even?) # => true
+# p [7, 10, 4, 5].my_any?(&:even?) # => true
+# p %w[q r s i].my_any? { |char| 'aeiou'.include?(char) } # => true
+# p [7, 11, 3, 5].my_any?(&:even?) # => false
+# p %w[q r s t].my_any? { |char| 'aeiou'.include?(char) } # => false
 # # test cases required by tse reviewer
-# p [1, 2, 3].my_none? # => false
-# p [1, 2, 3].my_none?(String) # => true
-# p [1, 2, 3, 4, 5].my_none?(2) # => false
-# p [1, 2, 3].my_none?(4) # => true
+# p [3, 5, 4, 11].my_any? # => true
+# p [1, nil, false].my_any?(1) # => true
+# p [1, nil, false].my_any?(Integer) # => true
+# p %w[dog door rod blade].my_any?(/z/) # => false
+# p [1, 2, 3].my_any?(1) # => true
 # puts
+# 6. my_none? (example test cases)
+puts 'my_none?'
+puts '--------'
+p [3, 5, 7, 11].my_none?(&:even?) # => true
+p %w[sushi pizza burrito].my_none? { |word| word[0] == 'a' } # => true
+p [3, 5, 4, 7, 11].my_none?(&:even?) # => false
+p %w[asparagus sushi pizza apple burrito].my_none? { |word| word[0] == 'a' } # => false
+# test cases required by tse reviewer
+p [1, 2, 3].my_none? # => false
+p [1, 2, 3].my_none?(String) # => true
+p [1, 2, 3, 4, 5].my_none?(2) # => false
+p [1, 2, 3].my_none?(4) # => true
+puts
 # # 7. my_count (example test cases)
 # puts 'my_count'
 # puts '--------'

@@ -49,7 +49,6 @@ module Enumerable
   end
 
   def my_all?()
-
     arr = is_a?(Range) ? to_a : self
     i = 0
     while i < arr.size
@@ -78,6 +77,14 @@ module Enumerable
     false
   end
 
+  def my_none?
+    self.my_each do |item|
+      if yield(item) == true
+        return false 
+      end
+    end
+    true
+  end
  
   
 end
