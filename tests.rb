@@ -69,22 +69,22 @@ require_relative 'enumerable'
 # p [1, 1, 1, 2, 3].my_count(1) # => 3
 # puts
 # # 8. my_map
-puts 'my_map'
-puts '------'
-p [1, 2, 3].my_map { |n| 2 * n } # => [2,4,6]
-p %w[Hey Jude].my_map { |word| word + '?' } # => ["Hey?", "Jude?"]
-p [false, true].my_map(&:!) # => [true, false]
-my_proc = proc { |num| num > 10 }
-p [18, 22, 5, 6].my_map(my_proc) { |num| num < 10 } # => true true false false
-puts
+# puts 'my_map'
+# puts '------'
+# p [1, 2, 3].my_map { |n| 2 * n } # => [2,4,6]
+# p %w[Hey Jude].my_map { |word| word + '?' } # => ["Hey?", "Jude?"]
+# p [false, true].my_map(&:!) # => [true, false]
+# my_proc = proc { |num| num > 10 }
+# p [18, 22, 5, 6].my_map(my_proc) { |num| num < 10 } # => true true false false
+# puts
 # # 9. my_inject
-# puts 'my_inject'
-# puts '---------'
-# p [1, 2, 3, 4].my_inject(10) { |accum, elem| accum + elem } # => 20
-# p [1, 2, 3, 4].my_inject { |accum, elem| accum + elem } # => 10
-# p [5, 1, 2].my_inject('+') # => 8
-# p (5..10).my_inject(2, :*) # should return 302400
-# p (5..10).my_inject(4) { |prod, n| prod * n } # should return 604800
+puts 'my_inject'
+puts '---------'
+p [1, 2, 3, 4].my_inject(10) { |accum, elem| accum + elem } # => 20
+p [1, 2, 3, 4].my_inject { |accum, elem| accum + elem } # => 10
+p [5, 1, 2].my_inject('+') # => 8
+p (5..10).my_inject(2, :*) # should return 302400
+p (5..10).my_inject(4) { |prod, n| prod * n } # should return 604800
 
 
 
