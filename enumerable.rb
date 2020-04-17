@@ -90,7 +90,19 @@ module Enumerable
     end
     true
   end
- 
-  
-end
 
+  def my_map (element=nil)
+    new_array = []
+
+    self.my_each do |item|
+      if block_given?
+        new_array << yield(item)
+      else
+        new_array << element.call(item)
+      end
+    end
+
+    new_array
+  end
+
+end

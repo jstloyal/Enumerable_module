@@ -46,18 +46,18 @@ require_relative 'enumerable'
 # p [1, 2, 3].my_any?(1) # => true
 # puts
 # 6. my_none? (example test cases)
-puts 'my_none?'
-puts '--------'
-p [3, 5, 7, 11].my_none?(&:even?) # => true
-p %w[sushi pizza burrito].my_none? { |word| word[0] == 'a' } # => true
-p [3, 5, 4, 7, 11].my_none?(&:even?) # => false
-p %w[asparagus sushi pizza apple burrito].my_none? { |word| word[0] == 'a' } # => false
-# test cases required by tse reviewer
-p [1, 2, 3].my_none? # => false
-p [1, 2, 3].my_none?(String) # => true
-p [1, 2, 3, 4, 5].my_none?(2) # => false
-p [1, 2, 3].my_none?(4) # => true
-puts
+# puts 'my_none?'
+# puts '--------'
+# p [3, 5, 7, 11].my_none?(&:even?) # => true
+# p %w[sushi pizza burrito].my_none? { |word| word[0] == 'a' } # => true
+# p [3, 5, 4, 7, 11].my_none?(&:even?) # => false
+# p %w[asparagus sushi pizza apple burrito].my_none? { |word| word[0] == 'a' } # => false
+# # test cases required by tse reviewer
+# p [1, 2, 3].my_none? # => false
+# p [1, 2, 3].my_none?(String) # => true
+# p [1, 2, 3, 4, 5].my_none?(2) # => false
+# p [1, 2, 3].my_none?(4) # => true
+# puts
 # # 7. my_count (example test cases)
 # puts 'my_count'
 # puts '--------'
@@ -69,14 +69,14 @@ puts
 # p [1, 1, 1, 2, 3].my_count(1) # => 3
 # puts
 # # 8. my_map
-# puts 'my_map'
-# puts '------'
-# p [1, 2, 3].my_map { |n| 2 * n } # => [2,4,6]
-# p %w[Hey Jude].my_map { |word| word + '?' } # => ["Hey?", "Jude?"]
-# p [false, true].my_map(&:!) # => [true, false]
-# my_proc = proc { |num| num > 10 }
-# p [18, 22, 5, 6].my_map(my_proc) { |num| num < 10 } # => true true false false
-# puts
+puts 'my_map'
+puts '------'
+p [1, 2, 3].my_map { |n| 2 * n } # => [2,4,6]
+p %w[Hey Jude].my_map { |word| word + '?' } # => ["Hey?", "Jude?"]
+p [false, true].my_map(&:!) # => [true, false]
+my_proc = proc { |num| num > 10 }
+p [18, 22, 5, 6].my_map(my_proc) { |num| num < 10 } # => true true false false
+puts
 # # 9. my_inject
 # puts 'my_inject'
 # puts '---------'
