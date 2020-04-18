@@ -62,18 +62,18 @@ This is a project of the Microverse Ruby Course.
 The project consists of three code files
 
 - enumerable.rb
-  Contains the method bubble_sort.
-  The bubble_sort methods accepts either an array of numbers and sorts them according to their value in ascending order or an array of strings and sorts them in ascending order alphabetically.
-  An error occurs if the method is passed an array with mixed numbers and strings.
+  Contain different methods.
+  Methods created include: #my_each, #my_each_with_index, #my_select, #my_all, #my_any, #my_none, #my_count, #my_map and #my_inject
 
-* test.rb
-  Contains test code for the two methods.
+- test.rb
+  Contains test code for the nine methods.
 
 <!-- ABOUT THE PROJECT -->
 
 ## Testing
 
-You may test the code either by running the test.rb file using Ruby or provide your own array such as
+You may test the code either by running the test.rb file using Ruby or provide your own array or (range) such as:
+[7, 9, 3, 10,4], (5..9) or %w[zebra gate hi month hello hey].
 
 ### Built With
 
