@@ -1,4 +1,4 @@
-module Enumerable 
+module Enumerable
   def my_each
     return enum_for unless block_given?
 
@@ -49,12 +49,12 @@ module Enumerable
     count
   end
 
-  def my_all?(*args)
+  def my_all?(_args)
     arr = is_a?(Range) ? to_a : self
     i = 0
     while i < arr.size
       yield(arr[i])
-      return false if !yield(arr[i])
+      return false unless yield(arr[i])
 
       i += 1
     end
@@ -79,31 +79,28 @@ module Enumerable
     false
   end
 
-  def my_none?(*args)
+  def my_none?(_args)
     unless block_given?
-      self.my_each { |item| return false if item != false }
+      my_each { |item| return false if item != false }
       return true
     end
-    self.my_each do |item|
-      if yield(item) == true
-        return false 
-      end
+    my_each do |item|
+      return false if yield(item) == true
     end
     true
   end
 
-  def my_map (element=nil)
+  def my_map(element = nil)
     new_array = []
 
-    self.my_each do |item|
-      if block_given?
-        new_array << yield(item)
-      else
-        new_array << element.call(item)
-      end
+    my_each do |item|
+      new_array << if block_given?
+                     yield(item)
+                   else
+                     element.call(item)
+                   end
     end
 
     new_array
   end
-
 end

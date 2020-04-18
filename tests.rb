@@ -30,7 +30,7 @@ require_relative 'enumerable'
 # p %w[dog door rod blade].my_all?(/d/) # => true
 # p [1, 1, 1].my_all?(1) # => true
 # puts
-#5. my_any? (example test cases)
+# 5. my_any? (example test cases)
 # puts 'my_any?'
 # puts '-------'
 # p [7, 10, 3, 5].my_any?(&:even?) # => true
@@ -85,14 +85,3 @@ p [1, 2, 3, 4].my_inject { |accum, elem| accum + elem } # => 10
 p [5, 1, 2].my_inject('+') # => 8
 p (5..10).my_inject(2, :*) # should return 302400
 p (5..10).my_inject(4) { |prod, n| prod * n } # should return 604800
-
-
-
-
-
-
-
-
-
-
-

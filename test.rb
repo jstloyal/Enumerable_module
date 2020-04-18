@@ -1,16 +1,21 @@
 require_relative 'enumerable'
-# [2,3,4,5,7].my_each
-# puts "-------------"
-# (1..5).my_each { |x| puts x }
-# (3..8).my_each_with_index { |x, i| "#{x}, #{i}" } 
 
-a = [2,3,4,2,6,7]
-# p a.my_count 
+# 1. my_each
+puts 'my_each'
+puts '-------'
+puts [1, 2, 3].my_each { |elem| print "#{elem + 1} " }
+puts
 
-p a.my_select { |x| x <= 4 }
+# 2. my_each_with_index
+puts 'my_each_with_index'
+puts '------------------'
+print [1, 2, 3].my_each_with_index { |elem, idx| puts "#{elem} : #{idx}" } 
+puts
 
-p a.select { |x| x >= 4}
-
-p a.my_all { |x| x >= 7 }
-
-p a.all? { |x| x >= 7 }
+# 3. my_select
+puts 'my_select'
+puts '---------'
+p [1, 2, 3, 8].my_select(&:even?) 
+p [0, 2018, 1994, -7].my_select { |n| n > 0 } 
+p [6, 11, 13].my_select(&:odd?) 
+puts
