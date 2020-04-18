@@ -66,7 +66,7 @@ The project consists of three code files
   Methods created include: #my_each, #my_each_with_index, #my_select, #my_all, #my_any, #my_none, #my_count, #my_map and #my_inject
 
 - test.rb
-  Contains test code for the nine methods.
+  Contains test code for the nine methods which can also be tested on repl.it to see how each test was carried out.
 
 <!-- ABOUT THE PROJECT -->
 
