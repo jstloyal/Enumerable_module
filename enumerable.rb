@@ -109,7 +109,17 @@ module Enumerable
     false
   end
 
-  def my_none?
+  def my_none?(*args)
+    if args.count.positive? 
+      if args[0].class.name == 'Regexp'
+        my_each { |item| return false if (item =~ args[0]).nil? }
+      elsif args[0].is_a?(Class)
+        my_each { |item| return true unless item.is_a?(args[0]) }
+      else args[0].is_a?(Object)
+        my_each { |item| return false if item == args[0] }
+      end
+      return true
+    end
     unless block_given?
       my_each { |item| return false if item != false }
       return true
