@@ -23,7 +23,12 @@ module Enumerable
     self
   end
 
-  def my_count
+  def my_count(*args)
+    if args.count.positive?
+      c = 0
+      my_each { |item| c += 1 if item == args[0] }
+      return c
+    end
     return length unless block_given?
 
     arr = is_a?(Range) ? to_a : self
