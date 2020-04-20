@@ -49,11 +49,28 @@ module Enumerable
     count
   end
 
-  def my_all?
+  def my_all?(*args)
     arr = is_a?(Range) ? to_a : self
+    if args.count.positive? 
+      if args[0].class.name == 'Regexp'
+        my_each { |item| return false if (item =~ args[0]).nil? }
+      elsif args[0].is_a?(Class)
+        my_each { |item| return false unless item.is_a?(args[0]) }
+      else args[0].is_a?(Object)
+        my_each { |item| return false unless item == args[0] }
+      end
+      return true
+    end
+    unless block_given?
+      i = 0
+      while i < arr.size
+        return false if arr[i] == false || arr[i].nil?
+        i += 1
+      end
+      return true
+    end
     i = 0
     while i < arr.size
-      yield(arr[i])
       return false unless yield(arr[i])
 
       i += 1
