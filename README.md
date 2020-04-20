@@ -68,6 +68,9 @@ The project consists of three code files
 - test.rb
   Contains test code for the nine methods which can also be tested on repl.it to see how each test was carried out.
 
+- multiple_els.rb
+  Contains a method that uses my_inject. My method a test case that successfully test my_inject functionalities.
+
 <!-- ABOUT THE PROJECT -->
 
 ## Testing
