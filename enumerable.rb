@@ -135,18 +135,52 @@ module Enumerable
     true
   end
 
-  def my_map(element = nil)
-    return enum_for unless block_given?
+  def my_map(proc = nil)
     new_array = []
-
-    my_each do |item|
-      new_array << if block_given?
-                     yield(item)
-                   else
-                     element.call(item)
-                   end
+    if proc.nil?
+      return enum_for unless block_given?
+      my_each { |item| new_array << yield(item) }
+    else
+      my_each { |item| new_array << proc.call(item) }
     end
-
     new_array
   end
+
+  def my_inject(*args)
+    arr = is_a?(Range) ? to_a : self
+    if args.count == 0
+      total = arr[0]
+      i = 1
+      while i < arr.size
+        total = yield(total, arr[i])
+        i += 1
+      end
+    elsif args.count == 1
+      if args[0].is_a?(Numeric)
+       total = args[0]
+       i = 0
+       while i < arr.size
+        total = yield(total, arr[i])
+        i += 1
+       end
+      else args[0].is_a?(Symbol) || args[0].is_a?(String)
+        action = args[0].is_a?(String) ? args[0].to_sym : args[0]
+        total = arr[0]
+        i = 1
+        while i < arr.size
+          total = total.send(action, arr[i])
+          i += 1
+        end
+      end
+    elsif args.count == 2
+      total = args[0]
+      action = args[1].is_a?(String) ? args[1].to_sym : args[1]   
+      i = 0
+      while i < arr.size
+        total = total.send(action, arr[i])
+        i += 1
+      end
+    end
+    total
+	end
 end
