@@ -56,6 +56,7 @@ p [1, 4, 3, 8].my_count(&:even?)
 p(%w[DANIEL JIA KRITI dave].my_count { |s| s == s.upcase })
 p(%w[daniel jia kriti dave].my_count { |s| s == s.upcase })
 p [1, 2, 3].my_count
+p [1, 1, 1, 2, 3].my_count(1)
 puts
 
 # # 8. my_map
@@ -64,6 +65,7 @@ puts '------'
 p([1, 2, 3].my_map { |n| 2 * n })
 p(%w[Hey Jude].my_map { |word| word + '?' })
 p [false, true].my_map(&:!)
+p [2, 44, 21, 7].my_map
 my_proc = proc { |num| num > 10 }
 p [18, 22, 5, 6].my_map(my_proc) { |num| num < 10 }
 puts

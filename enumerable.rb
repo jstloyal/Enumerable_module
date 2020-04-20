@@ -136,6 +136,7 @@ module Enumerable
   end
 
   def my_map(element = nil)
+    return enum_for unless block_given?
     new_array = []
 
     my_each do |item|
