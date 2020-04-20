@@ -78,21 +78,34 @@ module Enumerable
     true
   end
 
-  def my_any?(con = false)
-    if block_given?
-      size.times do |item|
-        result = yield(self[item])
-        (return true) if result
+  def my_any?(*args)
+    arr = is_a?(Range) ? to_a : self
+    if args.count.positive? 
+      if args[0].class.name == 'Regexp'
+        my_each { |item| return false if (item =~ args[0]).nil? }
+      elsif args[0].is_a?(Class)
+        my_each { |item| return true unless item.is_a?(args[0]) }
+      else args[0].is_a?(Object)
+        my_each { |item| return true unless item == args[0] }
       end
-    elsif con
-      size.times do |item|
-        return true if con == self[item]
-      end
-    else
-      size.times do |item|
-        return true if self[item]
-      end
+      return true
     end
+
+    unless block_given?
+      i = 0
+      while i < arr.size
+        return false if arr[i] == false || arr[i].nil?
+        i += 1
+      end
+      return true
+    end
+
+    i = 0
+    while i < arr.size
+      return true if yield(arr[i])
+
+      i += 1
+    end   
     false
   end
 
