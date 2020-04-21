@@ -8,7 +8,7 @@ module Enumerable
       yield(arr[i])
       i += 1
     end
-    self
+    
   end
 
   def my_each_with_index
@@ -87,22 +87,22 @@ module Enumerable
     arr = is_a?(Range) ? to_a : self
     if args.count.positive? 
       if args[0].class.name == 'Regexp'
-        my_each { |item| return false if (item =~ args[0]).nil? }
+        my_each { |item| return true if item =~ args[0] }
       elsif args[0].is_a?(Class)
-        my_each { |item| return true unless item.is_a?(args[0]) }
+        my_each { |item| return true if item.is_a?(args[0]) }
       else args[0].is_a?(Object)
-        my_each { |item| return true unless item == args[0] }
+        my_each { |item| return true if item == args[0] }
       end
-      return true
+      return false
     end
 
     unless block_given?
       i = 0
       while i < arr.size
-        return false if arr[i] == false || arr[i].nil?
+        return true if arr[i] != false && !arr[i].nil?
         i += 1
       end
-      return true
+      return false
     end
 
     i = 0
