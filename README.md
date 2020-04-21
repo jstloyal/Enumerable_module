@@ -31,7 +31,7 @@ This is a project of the Microverse Ruby Course.
     <img src="images/microverse.png" alt="Microverse Logo" width="80" height="80">
   </a>
   
-  <h3 align="center">Bubble Sort</h3>
+  <h3 align="center">Enumerable Module</h3>
   
   <p align="center">
     This project is part of the Microverse curriculum in Ruby module!
