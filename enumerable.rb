@@ -25,9 +25,9 @@ module Enumerable
 
   def my_count(*args)
     if args.count.positive?
-      c = 0
+      counter = 0
       my_each { |item| c += 1 if item == args[0] }
-      return c
+      return counter
     end
     return length unless block_given?
 
