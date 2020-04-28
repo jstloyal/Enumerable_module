@@ -36,7 +36,16 @@ describe Enumerable do
         expect(result).to eql([2,4,8])
       end
     end
+
+    context "block not given" do
+      it "it returns the enumerator" do
+        array.my_each_with_index
+        expect(array).to eql(array)
+      end
+    end
   end
+
+ 
 
 
 end
