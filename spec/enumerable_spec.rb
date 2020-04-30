@@ -147,64 +147,120 @@ RSpec.describe Enumerable do
   #     end
   #   end
   # end
-  
-  # ball grain guitar top buttom right left
 
-  describe "#my_any" do
-    context "if an arguments is given" do
+  # describe "#my_any" do
+  #   context "if an arguments is given" do
+  #     context "if argument is Regex" do
+  #       it "returns false when none of the elements contain a z" do
+  #         expect(str_array.my_any?(/[z]/)).to be false
+  #       end
+
+  #       it "returns true when any of the elements contains r" do
+  #         expect(str_array.my_any?(/[r]/)).to be true
+  #       end
+  #     end
+
+  #     context "if argument is class name" do
+  #       it "returns true if any of the elements is an Array" do
+  #         expect(mix_array.my_any?(Array)).to be true
+  #       end
+
+  #       it "returns false if any of the elements is a String" do
+  #         expect(array.my_any?(String)).to be false
+  #       end
+  #     end
+
+  #     context "if argument is an object" do
+  #       it "returns true if any of the elements is 2" do
+  #         expect(array.my_any?(2)).to be true
+  #       end
+
+  #       it "returns false if any of the elements is 10" do
+  #         expect(array.my_any?(10)).to be false
+  #       end
+  #     end
+  #   end
+
+  #   context "if a block is given but no argument" do
+  #     it "returns true if any of the elements is a positive number" do
+  #       expect(array.my_any? { |x| x.positive? }).to be true
+  #     end
+
+  #     it "returns false if none of the elements is a String" do
+  #       expect(array.my_any? { |x| x.is_a?(String) }).to be false
+  #     end
+      
+  #     it "returns true if any of the elements is a String" do
+  #       expect(mix_array.my_any? { |x| x.is_a?(String) }).to be true
+  #     end
+
+  #   end
+
+  #   context "if no block is given nor an argument" do
+  #     it "returns true if any of the elements is a truthy value" do
+  #       expect(mix_array.my_any?).to be true
+  #     end
+
+  #     it "returns false if none of the elements is a truthy value" do
+  #       expect(only_nil_array.my_any?).to be false
+  #     end
+  #   end
+  # end
+
+  describe "#my_none?" do
+    context "if an argument is given" do
       context "if argument is Regex" do
-        it "returns false when none of the elements contain a z" do
-          expect(str_array.my_any?(/[z]/)).to be false
+        it "returns true when none of the elements contain a z" do
+          expect(str_array.my_none?(/[z]/)).to be true
         end
 
-        it "returns true when any of the elements contains r" do
-          expect(str_array.my_any?(/[r]/)).to be true
+        it "returns false when any of the elements contains r" do
+          expect(str_array.my_none?(/[r]/)).to be false
         end
       end
 
       context "if argument is class name" do
-        it "returns true if any of the elements is an Array" do
-          expect(mix_array.my_any?(Array)).to be true
+        it "returns false if any of the elements is a String" do
+          expect(mix_array.my_none?(String)).to be false
         end
 
-        it "returns false if any of the elements is a String" do
-          expect(array.my_any?(String)).to be false
+        it "returns true if none of the elements is a String" do
+          expect(array.my_none?(String)).to be true
         end
       end
 
       context "if argument is an object" do
-        it "returns true if any of the elements is 2" do
-          expect(array.my_any?(2)).to be true
+        it "returns false if any of the elements is 2" do
+          expect(array.my_none?(2)).to be false
         end
 
-        it "returns false if any of the elements is 10" do
-          expect(array.my_any?(10)).to be false
+        it "returns true if none of the elements is 10" do
+          expect(array.my_none?(10)).to be true
         end
       end
     end
 
     context "if a block is given but no argument" do
-      it "returns true if any of the elements is a positive number" do
-        expect(array.my_any? { |x| x.positive? }).to be true
+      it "returns false if any of the elements is a positive number" do
+        expect(array.my_none? { |x| x.positive? }).to be false
       end
 
-      it "returns false if none of the elements is a String" do
-        expect(array.my_any? { |x| x.is_a?(String) }).to be false
+      it "returns true if none of the elements is a String" do
+        expect(array.my_none? { |x| x.is_a?(String) }).to be true
       end
       
-      it "returns true if any of the elements is a String" do
-        expect(mix_array.my_any? { |x| x.is_a?(String) }).to be true
+      it "returns false if any of the elements is a String" do
+        expect(mix_array.my_none? { |x| x.is_a?(String) }).to be false
       end
-
     end
 
     context "if no block is given nor an argument" do
-      it "returns true if any of the elements is a truthy value" do
-        expect(mix_array.my_any?).to be true
+      it "returns false if any of the elements is a truthy value" do
+        expect(mix_array.my_none?).to be false
       end
 
-      it "returns false if none of the elements is a truthy value" do
-        expect(only_nil_array.my_any?).to be false
+      it "returns true if none of the elements is a truthy value" do
+        expect(only_nil_array.my_none?).to be true
       end
     end
   end
