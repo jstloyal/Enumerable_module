@@ -67,10 +67,10 @@ puts 'my_map'
 puts '------'
 p([1, 2, 3].my_map { |n| 2 * n })
 p(%w[Hey Jude].my_map { |word| word + '?' })
-p [false, true].my_map(&:!)
-p [2, 44, 21, 7].my_map
-my_proc = Proc.new { |num| num > 10 }
-p [18, 22, 5, 6].my_map(my_proc) { |num| num < 10 }
+p([false, true].my_map(&:!))
+p([2, 44, 21, 7].my_map)
+my_proc = proc { |num| num > 10 }
+p([18, 22, 5, 6].my_map(my_proc) { |num| num < 10 })
 puts
 
 # 9. my_inject
@@ -78,7 +78,7 @@ puts 'my_inject'
 puts '---------'
 p [1, 2, 3, 4].my_inject(10) { |accum, elem| accum + elem }
 p([1, 2, 3, 4].my_inject { |accum, elem| accum + elem })
-p [5, 1, 2].my_inject('+')
-p (5..10).my_inject(2, :*)
-p (5..10).my_inject(4) { |prod, n| prod * n }
+p([5, 1, 2].my_inject('+'))
+p((5..10).my_inject(2, :*))
+p((5..10).my_inject(4) { |prod, n| prod * n })
 puts
